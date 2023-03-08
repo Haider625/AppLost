@@ -1,6 +1,7 @@
 const express = require ('express');
 const body_parser = require('body-parser');
-const lost_rout = require('./router/lost')
+const lost_rout = require('./router/lost');
+const human_rout = require('./router/human');
 const mongoose = require ('mongoose')
 const app = express();
 
@@ -21,7 +22,8 @@ connection.on('connected' , () => {
 });
 
 app.use([body_parser.urlencoded({extended :true}),express.json()])
-app.use('/',lost_rout)
+app.use('/lost',lost_rout);
+app.use('/human',human_rout)
 app.listen(PORT,()=>{
     console.log("It is work");
 } )
