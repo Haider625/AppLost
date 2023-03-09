@@ -9,7 +9,8 @@ module.exports = {
         const human =await new HUMAN({
             name: req.body.name,
             country: req.body.country,
-            lssuer: req.body.lssuer,
+            gender : req.body.gender,
+            waiting_place: req.body.waiting_place,
             YersLost: req.body.YersLost,
             PhoneNumber: req.body.PhoneNumber,
             note: req.body.note
@@ -24,7 +25,11 @@ module.exports = {
     deleteone : async (req,res) => {
         const Id = req.params.id;
         const del = await HUMAN.findByIdAndDelete(Id);
-        res.json({"delete" : del})
+        if (del){
+            res.status(200).json({"humandel" : del});
+           }else{
+               res.status(404).json({message : "human is erorr"});
+           }
     },
     getOne : async (req, res) => {
         const Id = req.params.id;

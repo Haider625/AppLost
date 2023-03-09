@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const human = mongoose.Schema({
     name : String  ,
     country : String ,
-    lssuer : String ,
+    gender : String,
+    waiting_place: String ,
     YersLost : Date ,
     PhoneNumber : Number,
     note : String,
