@@ -3,7 +3,11 @@ const LOST = require('../model/lost');
 module.exports = {
     getall : async (req, res) => {
         const lost = await LOST.find();
-        res.json(lost);
+        if (lost){
+            res.status(200).json({"lost" : lost})
+        }else{
+            res.status(404).json({Message : "lost_get not working"})
+        }
     },
     insertlost : async (req,res) =>{
         const lost = await new LOST({
@@ -18,17 +22,25 @@ module.exports = {
         if (lost){
             res.status(200).json({"lost" : lost})
         }else{
-            res.status(404).json({Message : "post not working"})
+            res.status(404).json({Message : "lost_insert not working"})
         }
     },
     deleteone : async (req,res) => {
         const Id = req.params.id;
         const del = await LOST.findByIdAndDelete(Id);
-        res.json({"delete" : del})
+        if (del){
+            res.status(200).json({"lost" : del})
+        }else{
+            res.status(404).json({Message : "lost_delet not working"})
+        }
     },
     getOne : async (req, res) => {
         const Id = req.params.id;
         const Get = await LOST.findById(Id);
-        res.json({ "Get": Get });
+        if (Get){
+            res.status(200).json({"lost" : lost})
+        }else{
+            res.status(404).json({Message : "lost_getone not working"})
+        }
     },
 }

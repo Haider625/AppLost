@@ -3,7 +3,11 @@ const HUMAN = require('../model/human');
 module.exports = {
     gethuman : async (req, res) => {
         const human = await HUMAN.find();
-        res.json(human)
+        if (human){
+            res.status(200).json({"human" : human});
+           }else{
+               res.status(404).json({message : "human_get is erorr"});
+           }
     },
     inserthuman :async (req,res)=>{
         const human =await new HUMAN({
@@ -18,7 +22,7 @@ module.exports = {
         if (human){
          res.status(200).json({"human" : human});
         }else{
-            res.status(404).json({message : "human is erorr"});
+            res.status(404).json({message : "human_insert is erorr"});
         } 
         
     },
@@ -26,9 +30,9 @@ module.exports = {
         const Id = req.params.id;
         const del = await HUMAN.findByIdAndDelete(Id);
         if (del){
-            res.status(200).json({"humandel" : del});
+            res.status(200).json({"human" : del});
            }else{
-               res.status(404).json({message : "human is erorr"});
+               res.status(404).json({message : "human_delet is erorr"});
            }
     },
     getOne : async (req, res) => {
@@ -37,7 +41,7 @@ module.exports = {
         if (Get){
             res.status(200).json({"human" : Get});
            }else{
-               res.status(404).json({message : "human is erorr"});
+               res.status(404).json({message : "human_getOne is erorr"});
            }
     },
 }
