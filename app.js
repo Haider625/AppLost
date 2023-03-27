@@ -5,7 +5,7 @@ const human_rout = require('./router/human');
 const mongoose = require ('mongoose')
 const app = express();
 
-const PORT =process.env.PORT ||3000;
+const PORT =process.env.PORT ||4000;
 
 mongoose.connect('mongodb://applost:applost@ac-evuen8u-shard-00-00.ojom7c7.mongodb.net:27017,ac-evuen8u-shard-00-01.ojom7c7.mongodb.net:27017,ac-evuen8u-shard-00-02.ojom7c7.mongodb.net:27017/?ssl=true&replicaSet=atlas-n31g12-shard-0&authSource=admin&retryWrites=true&w=majority',
 {
