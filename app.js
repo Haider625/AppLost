@@ -22,7 +22,7 @@ connection.on('connected' , () => {
 });
 
 app.use([body_parser.urlencoded({extended :true}),express.json()])
-app.use('/',lost_rout);
+app.use('/lost',lost_rout);
 app.use('/human',human_rout)
 app.listen(PORT,()=>{
     console.log("It is work");
