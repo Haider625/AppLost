@@ -8,6 +8,7 @@ mongoose.options.toJSON = { transform : function(doc, ret, options) {
 const lost = mongoose.Schema({
     name : String,
     typeLost : String ,
+    country : String ,
     lssuer : String ,
     YersLost : Date ,
     PhoneNumber : Number,

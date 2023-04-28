@@ -12,6 +12,7 @@ module.exports = {
     insertlost : async (req,res) =>{
         const lost = await new LOST({
             name: req.body.name,
+            country: req.body.country,
             typeLost: req.body.typeLost,
             lssuer: req.body.lssuer,
             YersLost: req.body.YersLost,
