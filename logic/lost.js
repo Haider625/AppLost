@@ -38,7 +38,7 @@ module.exports = {
         const Id = req.params.id;
         const Get = await LOST.findById(Id);
         if (Get){
-            res.status(200).json({"lost" : lost})
+            res.status(200).json({"lost" : Get})
         }else{
             res.status(404).json({Message : "lost_getone not working"})
         }
